@@ -19,7 +19,7 @@ Route::namespace('Frontend')->group(function () {
     // Plan de estudios
     Route::get('/plan_de_estudios', ['uses' => 'FrontController@planDeEstudios' ,'as' => 'front.plan_de_estudios']);
     // Isncripciones y costos
-    Route::get('/inscripciones_y_costos', ['uses' => 'FrontController@planDeEstudios' ,'as' => 'front.inscripciones']);
+    Route::get('/inscripciones_y_costos', ['uses' => 'FrontController@inscripciones' ,'as' => 'front.inscripciones']);
     // Campo Laboral
     Route::get('/campo_laboral', ['uses' => 'FrontController@campoLaboral' ,'as' => 'front.campo_laboral']);
     // Diplomados
