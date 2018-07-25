@@ -23,7 +23,7 @@ Route::namespace('Frontend')->group(function () {
     // Campo Laboral
     Route::get('/campo_laboral', ['uses' => 'FrontController@campoLaboral' ,'as' => 'front.campo_laboral']);
     // Diplomados
-    Route::get('/diplomados', ['uses' => 'FrontController@diplomados' ,'as' => 'front.campo_laboral']);
+    Route::get('/diplomados', ['uses' => 'FrontController@diplomados' ,'as' => 'front.diplomados']);
     // Becas
     Route::get('/becas', ['uses' => 'FrontController@becas' ,'as' => 'front.becas']);
     // Noticias
