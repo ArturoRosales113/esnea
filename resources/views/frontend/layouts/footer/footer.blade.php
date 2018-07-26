@@ -1,12 +1,13 @@
 <footer>
  <div class="row align-items-center py-4 justify-content-center">
-  <div class="col-10 col-md-6 order-1 order-md-0">
-   <a href="#" class="text-secondary">Planes de estudio</a>
-   <a href="#" class="text-secondary">Diplomados</a>
-   <a href="#" class="text-secondary">Costos</a>
-   <a href="#" class="text-secondary">Becas</a>
-   <a href="#" class="text-secondary">Noticias</a>
-   <a href="#" class="text-secondary">Contacto</a>
+  <div class="col-10 col-md-5 order-1 order-md-0">
+ <div class="row justify-content-around py-4 py-md-0">
+  <a href="#" class="text-secondary">Carreras</a>
+  <a href="#" class="text-secondary">Costos</a>
+  <a href="#" class="text-secondary">Becas</a>
+  <a href="#" class="text-secondary">Noticias</a>
+  <a href="#" class="text-secondary">Contacto</a>
+ </div>
   </div>
   <div class="col-10 col-md-1 text-center order-0 order-md-1">
    <a href="#"><img src="{{ asset('img/logo-esnea-color.png')}}" height="90px" alt="..."></a>

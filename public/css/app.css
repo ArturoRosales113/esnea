@@ -53,10 +53,16 @@ body{
  font-size: 14px;
 }
 
-.img-noticia, .imagen-welcome{
+.img-noticia, .imagen-welcome,.imagen-campo{
  background-position: center;
  background-size: cover;
  min-height:200px;
+}
+
+.imagen-campo{
+ background-position: center;
+ background-size: cover;
+ min-height:450px;
 }
 
 /* Index */

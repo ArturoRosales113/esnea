@@ -30,7 +30,7 @@
 </div>
 <div class="row justify-content-center align-items-center bg1">
  <div class="col-12 col-md-5 col-lg-4 text-white">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center py-5">
    <div class="col-10 col-lg-6">
     <h4 class="font1">ESNEA</h4>
     <span>Calle Vialidad pública #45</span> <br>

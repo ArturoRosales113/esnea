@@ -17,7 +17,7 @@ class FrontController extends Controller
     }
     public function planDeEstudios()
     {
-     return view('fronend.planEstudios.planEstudios');
+     return view('frontend.planEstudios.planEstudios');
     }
     public function inscripciones()
     {
@@ -38,6 +38,10 @@ class FrontController extends Controller
     public function noticias()
     {
      return view('frontend.noticias.noticias');
+    }
+    public function galeria()
+    {
+     return view('frontend.galeria.galeria');
     }
     public function contacto()
     {

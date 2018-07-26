@@ -1,3 +1,4 @@
+<!-- Bienvenida -->
 <div class="row justify-content-center align-items-center py-5 my-5" id="welcome">
  <div class="col-10 col-lg-5 text-center">
   <div class="image">
@@ -15,6 +16,7 @@
   <a href="{{ route('front.nosotros') }}" class="btn btn-outline-secondary">Sobre Nosotros</a>
  </div>
 </div>
+<!-- Fin bienvenida -->
 
 <div class="row justify-content-center align-items-center">
  <div class="col-lg-10">
