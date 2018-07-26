@@ -21,7 +21,7 @@ class CampoLaboralController extends Controller
     public function index()
     {
         $campos = CampoLaboral::all();
-        return view('backend.campos.index', ['campos' => $campos]);
+        return view('backend.campo.index', ['campos' => $campos]);
     }
 
     /**
@@ -32,7 +32,7 @@ class CampoLaboralController extends Controller
     public function create()
     {
         $planes = PlanEstudio::all();
-        return view('backend.article.create',['planes' => $planes]);
+        return view('backend.campo.create',['planes' => $planes]);
     }
 
     /**
@@ -82,6 +82,7 @@ class CampoLaboralController extends Controller
             $c->save();
 
         }
+        return redirect('campos/');
     }
 
     /**
@@ -93,7 +94,7 @@ class CampoLaboralController extends Controller
     public function show($id)
     {
         $c = CampoLaboral::find($id);
-        return view('backend.campos.show',['campo' => $c]);
+        return view('backend.campo.show',['campo' => $c]);
     }
 
     /**
@@ -106,7 +107,7 @@ class CampoLaboralController extends Controller
     {
         $planes = PlanEstudio::all();
         $campo = CampoLaboral::find($id);
-        return view('backend.campos.edit', ['campo' => $campo, 'planes' => $planes]);
+        return view('backend.campo.edit', ['campo' => $campo, 'planes' => $planes]);
     }
 
     /**
@@ -156,6 +157,7 @@ class CampoLaboralController extends Controller
             }
             
             $c->save();
+            return redirect('campos/');
 
         }
     }

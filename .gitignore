@@ -13,6 +13,9 @@ storage/*.key
 .env.*.php
 .env.php
 .env
+.DS_Store
+public/planEstudio/
+public/campoLaboral/
 Homestead.yaml
 Homestead.json
 

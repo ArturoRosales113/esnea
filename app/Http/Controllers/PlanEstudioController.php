@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PlanEstudio;
 use App\CampoLaboral;
+use Validator;
+use Image;
+use File;
+use Illuminate\Support\Facades\Input;
+
 
 class PlanEstudioController extends Controller
 {
@@ -21,7 +26,7 @@ class PlanEstudioController extends Controller
     public function index()
     {
         $planes = PlanEstudio::all();
-        return view('backend.planes.index', ['planes' => $planes]);
+        return view('backend.plan.index', ['planes' => $planes]);
     }
 
     /**
@@ -32,7 +37,7 @@ class PlanEstudioController extends Controller
     public function create()
     {
         $campos = CampoLaboral::all();
-        return view('backend.planes.create',['campos' => $campos]);
+        return view('backend.plan.create',['campos' => $campos]);
     }
 
     /**
@@ -50,12 +55,11 @@ class PlanEstudioController extends Controller
          'subtitle' => 'required',
          'body' => 'required',
          'front_pic' => 'required|mimes:jpeg,png,jpg|max:400',
-         'banner_pic' => 'required|mimes:jpeg,png,jpg|max:400',
-         'profile_title' => 'required',
-         'profile_body' => 'required',
-         'profile_pic' => 'required|mimes:jpeg,png,jpg|max:400',
-         'plan_pdf' => 'required|mimes:pdf|max:2024',
-         'planEstudio' => 'required'
+        //  'banner_pic' => 'required|mimes:jpeg,png,jpg|max:400',
+        //  'profile_title' => 'required',
+        //  'profile_body' => 'required',
+        //  'profile_pic' => 'required|mimes:jpeg,png,jpg|max:400',
+        //  'plan_pdf' => 'required|mimes:pdf|max:2024',
         ];
         $messages = [
             'title.required' => 'El campo "título" es obligatorio',
@@ -72,13 +76,12 @@ class PlanEstudioController extends Controller
             'plan_pdf.required' => 'El campo "plan de estudios" es obligatorio',
             'plan_pdf.mimes' => 'El archivo del plan debe ser un PDF',
             'plan_pdf.max' => 'El archivo PDF no debe pesar más de 2Mb',
-            'planEstudio.required' => 'El plan de estudio es requerido'
 
         ];
 
        $validator = Validator::make($input, $rules, $messages);
        if ( $validator->fails() ) {
-       return redirect('planes/create')
+       return redirect('admin/planes/create')
                    ->withErrors( $validator )
                    ->withInput();
         } else {
@@ -86,48 +89,48 @@ class PlanEstudioController extends Controller
 
             // front_pic
             $file = Input::file('front_pic');
-            $name = str_replace(' ', '', strtolower($input['front_pic']));
+            $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
             $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
             $img_path ='planEstudio/front_pics/'.$file_name;
-            $request->front_pic->move('planEstudio/front_pics/', $file_name); 
+            $request->front_pic->move('planEstudio/front_pics/', $file_name);
             $p->front_pic = $img_path;
 
             // banner_pic
             $file = Input::file('banner_pic');
-            $name = str_replace(' ', '', strtolower($input['banner_pic']));
+            $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
             $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
             $img_path ='planEstudio/banner_pics/'.$file_name;
-            $request->banner_pic->move('planEstudio/banner_pics/', $file_name); 
+            $request->banner_pic->move('planEstudio/banner_pics/', $file_name);
             $p->banner_pic = $img_path;
 
             // profile_pic
             $file = Input::file('profile_pic');
-            $name = str_replace(' ', '', strtolower($input['profile_pic']));
+            $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
             $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
             $img_path ='planEstudio/profile_pics/'.$file_name;
-            $request->profile_pic->move('planEstudio/profile_pics/', $file_name); 
+            $request->profile_pic->move('planEstudio/profile_pics/', $file_name);
             $p->profile_pic = $img_path;
 
             // plan_pdf
             $file = Input::file('plan_pdf');
-            $name = str_replace(' ', '', strtolower($input['plan_pdf']));
+            $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
             $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
             $pdf_path ='planEstudio/plan_pdf/'.$file_name;
-            $request->plan_pdf->move('planEstudio/plan_pdf/', $file_name); 
+            $request->plan_pdf->move('planEstudio/plan_pdf/', $file_name);
             $p->plan_pdf = $pdf_path;
 
             // save PlanEstudio
             $p->title = $request->input('title');
-            $p->content = $request->input('subtitle');
+            $p->subtitle = $request->input('subtitle');
             $p->body = $request->input('body');
             $p->profile_title = $request->input('profile_title');
             $p->profile_body = $request->input('profile_body');
             if ($request->input('isDiplomado')) {
-                $s->isDiplomado = true;
+                $p->isDiplomado = 1;
             }
             $p->save();
             $p->camposLaborales()->sync($request->input('campoLaboral'));
-            return redirect('planes/');
+            return redirect('admin/planes/');
         }
     }
 
@@ -140,7 +143,7 @@ class PlanEstudioController extends Controller
     public function show($id)
     {
         $p = PlanEstudio::find($id);
-        return view('backend.planes.show', ['plan' => $p]);
+        return view('backend.plan.show', ['plan' => $p]);
     }
 
     /**
@@ -152,7 +155,7 @@ class PlanEstudioController extends Controller
     public function edit($id)
     {
         $p = PlanEstudio::find($id);
-        return view('backend.planes.edit', ['plan' => $p]);
+        return view('backend.plan.edit', ['plan' => $p]);
     }
 
     /**
@@ -194,7 +197,7 @@ class PlanEstudioController extends Controller
 
        $validator = Validator::make($input, $rules, $messages);
        if ( $validator->fails() ) {
-       return redirect('planes/'.$id.'/edit')
+       return redirect('admin/planes/'.$id.'/edit')
                    ->withErrors( $validator )
                    ->withInput();
         } else {
@@ -203,54 +206,54 @@ class PlanEstudioController extends Controller
             // front_pic
             if (Input::file('front_pic')) {
                 $file = Input::file('front_pic');
-                $name = str_replace(' ', '', strtolower($input['front_pic']));
+                $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
                 $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
                 $img_path ='planEstudio/front_pics/'.$file_name;
-                $request->front_pic->move('planEstudio/front_pics/', $file_name); 
+                $request->front_pic->move('planEstudio/front_pics/', $file_name);
                 $p->front_pic = $img_path;
             }
 
             // banner_pic
             if (Input::file('banner_pic')) {
                 $file = Input::file('banner_pic');
-                $name = str_replace(' ', '', strtolower($input['banner_pic']));
+                $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
                 $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
                 $img_path ='planEstudio/banner_pics/'.$file_name;
-                $request->banner_pic->move('planEstudio/banner_pics/', $file_name); 
+                $request->banner_pic->move('planEstudio/banner_pics/', $file_name);
                 $p->banner_pic = $img_path;
             }
             // profile_pic
             if (Input::file('profile_pic')) {
                 $file = Input::file('profile_pic');
-                $name = str_replace(' ', '', strtolower($input['profile_pic']));
+                $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
                 $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
                 $img_path ='planEstudio/profile_pics/'.$file_name;
-                $request->profile_pic->move('planEstudio/profile_pics/', $file_name); 
+                $request->profile_pic->move('planEstudio/profile_pics/', $file_name);
                 $p->profile_pic = $img_path;
             }
 
             // plan_pdf
             if (Input::file('plan_pdf')) {
                 $file = Input::file('plan_pdf');
-                $name = str_replace(' ', '', strtolower($input['plan_pdf']));
+                $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
                 $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
                 $pdf_path ='planEstudio/plan_pdf/'.$file_name;
-                $request->plan_pdf->move('planEstudio/plan_pdf/', $file_name); 
+                $request->plan_pdf->move('planEstudio/plan_pdf/', $file_name);
                 $p->plan_pdf = $pdf_path;
             }
 
             // save PlanEstudio
             $p->title = $request->input('title');
-            $p->content = $request->input('subtitle');
+            $p->subtitle = $request->input('subtitle');
             $p->body = $request->input('body');
             $p->profile_title = $request->input('profile_title');
             $p->profile_body = $request->input('profile_body');
             if ($request->input('isDiplomado')) {
-                $s->isDiplomado = true;
+                $s->isDiplomado = 1;
             }
             $p->save();
             $p->camposLaborales()->sync($request->input('campoLaboral'));
-            return redirect('planes/');
+            return redirect('admin/planes/');
         }
     }
 
@@ -290,6 +293,6 @@ class PlanEstudioController extends Controller
         }
 
         $p->delete();
-        return redirect('planes/');
+        return redirect('admin/planes/');
     }
 }

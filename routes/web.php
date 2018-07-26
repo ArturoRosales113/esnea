@@ -37,21 +37,16 @@ Route::namespace('Frontend')->group(function () {
 
 });
 
-Route::namespace('Backend')->group(function () {
 
-    // Controllers Within The "App\Http\Controllers\Backend" Namespace
-    Route::prefix('admin')->group(function () {
-        Route::middleware(['auth'])->group(function () {
-
-            // Dashboard
-            Route::get('/', 'DashboardController@index')->name('admin.index');
-            // Resource Controllers
-
-      });
-     });
-});
-
-Auth::routes();
+Route::prefix('admin')->group(function () {
+    Route::middleware(['auth'])->group(function () {
+        // Dashboard
+        Route::get('/', 'DashboardController@index')->name('admin.index');
+        // Resource Controllers
+        Route::resource('planes', 'PlanEstudioController');
+        Route::resource('campos', 'CampoLaboralController');
+    });
+ });
 
 Auth::routes();
 
