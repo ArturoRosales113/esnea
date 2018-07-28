@@ -3,15 +3,18 @@
 @section('content')
  <!-- Navbar -->
  @include('backend.layouts.navbars.nav_expand')
- @include('backend.campo.create.header')
+ @include('backend.slider.edit.header')
  <div class="content">
 
-   @include('backend.campo.create.form')
+   @include('backend.slider.edit.form')
 
  </div>
  @include('backend.layouts.footers.footer')
 @endsection
 @section('page_scripts')
- <!-- CKeditor -->
- <script src='{{ URL::asset('ckeditor/ckeditor.js') }}'></script>
+{{--   <script>
+  tinymce.init({
+    selector: '#contenido'
+  });
+  </script> --}}
 @endsection

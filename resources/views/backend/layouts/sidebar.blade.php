@@ -72,6 +72,39 @@
                     <div class="collapse " id="articles">
                         <ul class="nav">
                           <li>
+                            <a href="{{ url('admin/articles/') }}">
+                                <span class="sidebar-mini-icon">A</span>
+                                <span class="sidebar-normal"> Artículos </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="{{ url('admin/categories/') }}">
+                                <span class="sidebar-mini-icon">C</span>
+                                <span class="sidebar-normal"> Categorías</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="{{ url('admin/sliders/') }}">
+                                <span class="sidebar-mini-icon">S</span>
+                                <span class="sidebar-normal"> Slider</span>
+                            </a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li>
+                    <a data-toggle="collapse" href="#categorias">
+
+                        <i class="fa fa-user-graduate"></i>
+
+                        <p>
+                          Carreras <b class="caret"></b>
+                        </p>
+                    </a>
+
+                    <div class="collapse " id="categorias">
+                        <ul class="nav">
+                          <li>
                             <a href="{{ url('admin/planes/') }}">
                                 <span class="sidebar-mini-icon">P</span>
                                 <span class="sidebar-normal"> Planes de Estudio </span>

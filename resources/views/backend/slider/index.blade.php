@@ -1,15 +1,12 @@
 @extends('backend.layouts.app')
-
 @section('content')
  <!-- Navbar -->
  @include('backend.layouts.navbars.nav_expand')
- @include('backend.campo.edit.header')
+ @include('backend.slider.index.header')
  <div class="content">
-   @include('backend.campo.edit.form')
+  <div class="row">
+   @include('backend.slider.index.sliders_table')
+  </div>
  </div>
  @include('backend.layouts.footers.footer')
-@endsection
-@section('page_scripts')
- <!-- CKeditor -->
- <script src='{{ URL::asset('ckeditor/ckeditor.js') }}'></script>
 @endsection

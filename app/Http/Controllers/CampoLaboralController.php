@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CampoLaboral;
 use App\PlanEstudio;
+use Validator;
+use Image;
+use File;
+use Illuminate\Support\Facades\Input;
 
 class CampoLaboralController extends Controller
 {
@@ -62,7 +66,7 @@ class CampoLaboralController extends Controller
 
        $validator = Validator::make($input, $rules, $messages);
        if ( $validator->fails() ) {
-       return redirect('campos/create')
+       return redirect('admin/campos/create')
                    ->withErrors( $validator )
                    ->withInput();
         } else {
@@ -73,16 +77,16 @@ class CampoLaboralController extends Controller
 
             // guardar imagen
             $file = Input::file('pic');
-            $name = str_replace(' ', '', strtolower($input['pic']));
+            $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
             $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
             $img_path ='campoLaboral/'.$file_name;
-            $request->pic->move('campoLaboral/', $file_name); 
+            $request->pic->move('campoLaboral/', $file_name);
             $c->pic = $img_path;
-            
+
             $c->save();
 
         }
-        return redirect('campos/');
+        return redirect('admin/campos/');
     }
 
     /**
@@ -137,7 +141,7 @@ class CampoLaboralController extends Controller
 
        $validator = Validator::make($input, $rules, $messages);
        if ( $validator->fails() ) {
-       return redirect('campos/create')
+       return redirect('admin/campos/create')
                    ->withErrors( $validator )
                    ->withInput();
         } else {
@@ -149,15 +153,15 @@ class CampoLaboralController extends Controller
             // guardar imagen
             if (Input::file('pic')) {
                 $file = Input::file('pic');
-                $name = str_replace(' ', '', strtolower($input['pic']));
+                $name = str_replace(' ', '', strtolower($file->getClientOriginalName()));
                 $file_name = $name.str_random(6).'.'.$file->getClientOriginalExtension();
                 $img_path ='campoLaboral/'.$file_name;
-                $request->pic->move('campoLaboral/', $file_name); 
+                $request->pic->move('campoLaboral/', $file_name);
                 $c->pic = $img_path;
             }
-            
+
             $c->save();
-            return redirect('campos/');
+            return redirect('admin/campos/');
 
         }
     }
@@ -179,6 +183,6 @@ class CampoLaboralController extends Controller
          File::delete($filename);
         }
         $c->delete();
-        return redirect('campos/');
+        return redirect('admin/campos/');
     }
 }

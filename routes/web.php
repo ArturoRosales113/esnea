@@ -40,11 +40,15 @@ Route::namespace('Frontend')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
+
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('admin.index');
         // Resource Controllers
         Route::resource('planes', 'PlanEstudioController');
         Route::resource('campos', 'CampoLaboralController');
+        Route::resource('articles', 'ArticleController');
+        Route::resource('sliders', 'SliderController');
+        Route::resource('categories', 'CategoryController');
     });
  });
 
