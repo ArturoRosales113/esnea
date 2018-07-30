@@ -104,6 +104,18 @@
            @endif
            <input id="profile_pic" name="profile_pic" type="file" class="file" placeholder="Subir imagen de perfil"/>
           </div>
+          
+          {{-- CAMPOS LABORALES RELACIONADOS --}}
+          <div class="form-group row justify-content-center">
+           <label for="categoria" class="col-md-10 text-left control-label">Selecciona campos laborales relacionados con este plan:</label>
+           <div class="col-md-10">
+            @foreach($campos as $c)
+            <div class="col-md-3 category-list p-2">
+              <input name="campos[]" type="checkbox" value="{{ $c->id }}">
+              <small>  {{ $c->title }}  </small></div>
+            @endforeach
+           </div>
+          </div>
 
           {{-- PLAN DE ESTUDIOS --}}
           <div class="form-group-file py-4 row justify-content-center">

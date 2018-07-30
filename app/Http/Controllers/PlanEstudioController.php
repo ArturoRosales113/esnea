@@ -55,11 +55,11 @@ class PlanEstudioController extends Controller
          'subtitle' => 'required',
          'body' => 'required',
          'front_pic' => 'required|mimes:jpeg,png,jpg|max:400',
-        //  'banner_pic' => 'required|mimes:jpeg,png,jpg|max:400',
-        //  'profile_title' => 'required',
-        //  'profile_body' => 'required',
-        //  'profile_pic' => 'required|mimes:jpeg,png,jpg|max:400',
-        //  'plan_pdf' => 'required|mimes:pdf|max:2024',
+         'banner_pic' => 'required|mimes:jpeg,png,jpg|max:400',
+         'profile_title' => 'required',
+         'profile_body' => 'required',
+         'profile_pic' => 'required|mimes:jpeg,png,jpg|max:400',
+         'plan_pdf' => 'required|mimes:pdf|max:2024',
         ];
         $messages = [
             'title.required' => 'El campo "título" es obligatorio',
@@ -129,7 +129,7 @@ class PlanEstudioController extends Controller
                 $p->isDiplomado = 1;
             }
             $p->save();
-            $p->camposLaborales()->sync($request->input('campoLaboral'));
+            $p->camposLaborales()->sync($request->input('campos'));
             return redirect('admin/planes/');
         }
     }
@@ -154,8 +154,9 @@ class PlanEstudioController extends Controller
      */
     public function edit($id)
     {
+        $campos = CampoLaboral::all();
         $p = PlanEstudio::find($id);
-        return view('backend.plan.edit', ['plan' => $p]);
+        return view('backend.plan.edit', ['plan' => $p, 'campos' => $campos]);
     }
 
     /**
@@ -252,7 +253,7 @@ class PlanEstudioController extends Controller
                 $s->isDiplomado = 1;
             }
             $p->save();
-            $p->camposLaborales()->sync($request->input('campoLaboral'));
+            $p->camposLaborales()->sync($request->input('campos'));
             return redirect('admin/planes/');
         }
     }
