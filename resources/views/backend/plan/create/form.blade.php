@@ -103,7 +103,19 @@
       <input id="profile_pic" name="profile_pic" type="file" class="file" placeholder="Subir imagen de perfil"/>
      </div>
 
-     {{-- PLAN DE ESTUDIOS --}}
+     {{-- CAMPOS LABORALES RELACIONADOS --}}
+     <div class="form-group row justify-content-center">
+      <label for="categoria" class="col-md-10 text-left control-label">Selecciona campos laborales relacionados con este plan:</label>
+      <div class="col-md-10">
+       @foreach($campos as $c)
+       <div class="col-md-3 category-list p-2">
+         <input name="campos[]" type="checkbox" value="{{ $c->id }}">
+         <small>  {{ $c->title }}  </small></div>
+       @endforeach
+      </div>
+     </div>
+
+     {{-- PLAN DE ESTUDIOS PDF --}}
      <div class="form-group-file py-4 row justify-content-center">
       <label for="plan_pdf" class="col-md-10 text-left control-label">Plan de Estudios (PDF):</label>
       @if ($errors->has('plan_pdf'))
@@ -121,6 +133,7 @@
         <div class="col-md-3 subcategory-list p-2"><input type="checkbox" name="isDiplomado" value="true"><small>  Es Diplomado  </small></div>
       </div>
       </div>
+
      {{-- END --}}
      <div class="form-group row justify-content-center">
       <div class="col-md-8 text-center">

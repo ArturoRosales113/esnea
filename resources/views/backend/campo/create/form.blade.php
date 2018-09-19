@@ -54,6 +54,18 @@
       <input id="image" name="pic" type="file" class="file" placeholder="Subir Archivos"/>
      </div>
 
+     {{-- PLAN ESTUDIOS RELACIONADOS --}}
+     <div class="form-group row justify-content-center">
+      <label for="categoria" class="col-md-10 text-left control-label">Selecciona planes de estudio relacionados con este campo:</label>
+      <div class="col-md-10">
+       @foreach($planes as $p)
+       <div class="col-md-3 category-list p-2">
+         <input name="planes[]" type="checkbox" value="{{ $p->id }}">
+         <small>  {{ $p->title }}  </small></div>
+       @endforeach
+      </div>
+     </div>
+
      <div class="form-group row justify-content-center">
       <div class="col-md-8 text-center">
        <button type="submit" class="btn btn-info">

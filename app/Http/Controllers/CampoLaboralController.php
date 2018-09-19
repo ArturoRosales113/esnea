@@ -84,6 +84,7 @@ class CampoLaboralController extends Controller
             $c->pic = $img_path;
 
             $c->save();
+            $c->planesEstudio()->sync($request->input('planes'));
 
         }
         return redirect('admin/campos/');
@@ -161,6 +162,7 @@ class CampoLaboralController extends Controller
             }
 
             $c->save();
+            $c->planesEstudio()->sync($request->input('planes'));
             return redirect('admin/campos/');
 
         }
