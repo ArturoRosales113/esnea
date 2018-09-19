@@ -2,9 +2,6 @@
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-
-
-
     <div class="sidebar-wrapper">
 
         <div class="user">
@@ -43,7 +40,7 @@
 
         <ul class="nav">
               <li class="">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ url('/admin/') }}">
 
                         <i class="fa fa-tachometer-alt"></i>
 

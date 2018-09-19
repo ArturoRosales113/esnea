@@ -168,21 +168,4 @@
  </div>
 </div>
 <!-- Fin Planes -->
-<!-- Banner Capacitacion -->
-<div class="row align-items-center justify-content-center" style="height:100vh; background-image:url('{{asset('img/capacitacion.jpg')}}');background-size:cover;background-repeat:no-repeat;;">
- <div class="col-md-4">
-  <div class="image">
-   <img src="{{ asset('img/logo-esnea-bn.png') }}" class="img-fluid" alt="">
-  </div>
- </div>
- <div class="col-md-5">
-  <span class="rem2 font1 text-white text-uppercase">
-   Continua capacitación
-  </span>
-  <p class="text-white text-justify">
-   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate error id, quibusdam nesciunt ad veniam sed eius dolor similique in deleniti quaerat non eveniet recusandae, dolore alias culpa voluptatum distinctio. Nulla porro aspernatur dicta sunt laboriosam dolor, reiciendis totam doloribus commodi quod dolorem error quisquam odit velit, fugit magnam. Obcaecati doloremque quod veritatis neque voluptatem iusto ad repellat dignissimos unde suscipit ipsa sint possimus iure fugiat, commodi quae harum at dicta dolor, natus, ducimus itaque. Expedita qui sit fuga, culpa quia, soluta dolores cupiditate corporis. Enim harum consequuntur odit porro voluptatibus consequatur incidunt, est ad tenetur quia ipsa labore dolorum necessitatibus autem, debitis odio, maxime. Aliquam expedita, in et. Possimus maxime, illo. Ipsa delectus perferendis suscipit velit cumque dolores ut.
-  </p>
- </div>
-</div>
-<!-- Fin Banner Capacitación -->
 @endsection

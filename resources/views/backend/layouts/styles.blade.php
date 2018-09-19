@@ -3,6 +3,6 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <!-- Now UI -->
-<link rel="stylesheet" href="{{ URL::asset('css/now_ui_dashboard.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/bicefalo_dashboard.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-imageupload.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">

@@ -12,9 +12,8 @@
      <span class="color1">Un futuro asegurado</span>
     </h1>
    <p class="text-justify">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque sequi aspernatur reprehenderit suscipit eius tempora, mollitia facilis impedit velit nesciunt eligendi, beatae possimus voluptate autem provident. Odit officiis impedit quo culpa sunt quia
-    quisquam odio atque maiores corporis. Minima incidunt veritatis optio placeat nesciunt omnis asperiores illo beatae numquam sed doloribus sequi quo autem ex et delectus nam, nisi deserunt laborum fugit fuga? Necessitatibus at mollitia maxime cumque
-    ullam vitae deserunt distinctio cupiditate consectetur corporis error impedit deleniti sit ad, consequuntur magnam, quo quibusdam debitis veniam neque. Consequuntur, aliquid sapiente!
+    En ESNEA estamos comprometidos a formar alumnos con las herramientas necesarias para fomrarse como emprendedores en el campo laboral de los negocios en el ecoturismo y todas las ramas que de aquí puedan derivar.Sin embargo, buscamos una constante capacitación de los alumnos durante la licenciatura, con el fin de brindarles los conocimientos y competencias necesarias para desarrollarse como profesionistas preparados y competitivos en el campo laboral. Donde se podrán desempeñar en el ambito profesional en las areas de negocios, socio-culturales y ecoturísticas.
+
    </p>
   </div>
   <div class="col-6 col-lg-3 text-center order-0 order-lg-1 mb-4 mb-lg-0">

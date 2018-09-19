@@ -8,19 +8,7 @@
     </p>
    </div>
    <div class="col-10 col-md-4">
-      <h6 class="text-left text-white">Buscar artículo</h6>
-    <form class="form-horizontal " method="POST" enctype="multipart/form-data" action="{{-- route('articles.search') --}}">
-     {{ csrf_field() }}
-     <div class="input-group no-border">
 
-      <input type="text" value="" class="form-control text-white" name="title" placeholder="Buscar" autocomplete="off">
-      <div class="input-group-append">
-       <div class="input-group-text text-white">
-        <i class="fas fa-search"></i>
-       </div>
-      </div>
-     </div>
-    </form>
    </div>
   </div>
  </div>

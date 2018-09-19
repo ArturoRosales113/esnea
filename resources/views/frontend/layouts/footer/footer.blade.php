@@ -1,11 +1,11 @@
-<footer>
+<footer class="">
  <div class="row align-items-center py-4 justify-content-center">
   <div class="col-10 col-md-5 order-1 order-md-0">
  <div class="row justify-content-around py-4 py-md-0">
   <a href="#" class="text-secondary">Carreras</a>
-  <a href="#" class="text-secondary">Costos</a>
-  <a href="#" class="text-secondary">Becas</a>
-  <a href="#" class="text-secondary">Noticias</a>
+  <a href="{{ route('front.inscripciones') }}" class="text-secondary">Costos</a>
+  <a href="{{ route('front.becas') }}" class="text-secondary">Becas</a>
+  <a href="{{ route('front.noticias') }}" class="text-secondary">Noticias</a>
   <a href="#" class="text-secondary">Contacto</a>
  </div>
   </div>

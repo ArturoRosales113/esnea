@@ -28,3 +28,6 @@
 .form-control i{
 	 color:#fff;
 }
+.sidebar ::-webkit-scrollbar {
+    display: none;
+}

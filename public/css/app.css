@@ -49,8 +49,26 @@ body{
     display: none;
 }
 .nav-link{
- color:#fff;
+ color:#42a637;
  font-size: 14px;
+ transition: all 1s ease-out;
+ -webkit-transition: all 1s ease-out; /* Safari 3.1 to 6.0 */
+}
+.nav-link:hover{
+ color:#42a637;
+ border-bottom:1px solid #42a637;
+ font-size: 14px;
+}
+
+
+.header-carousel .carousel-item {
+ height: 100vh;
+ min-height: 300px;
+ background: no-repeat center center scroll;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
 }
 
 .img-noticia, .imagen-welcome,.imagen-campo{

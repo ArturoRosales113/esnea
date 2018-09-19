@@ -52,9 +52,9 @@ Contacto
    </p>
    <div class="row justify-content-start py-3">
     <div class="col-md-10 text-left">
-     <span class="rem1"><i class="fa fa-phone color1"></i>&nbsp;(228)817-17-17</span>
+     <a href="tel:2288526954" class="rem1 text-secondary"><i class="fab fa-whatsapp color1"></i>&nbsp;22-88-52-69-54</i></a>
      <br>
-     <span class="rem1"><i class="fa fa-envelope color1"></i>&nbsp;contacto@esnea.com.mx</span><br>
+     <a href="mailto:contacto@esnea.com.mx" class="rem1 text-secondary"><i class="fa fa-envelope color1">&nbsp;contacto@esnea.com.mx</i></a><br>
      <hr>
      <h6 class="font1 color1">Síguenos</h6>
      <a href="#" class="text-secondary"><i class="color1 fab fa-facebook"></i> facebook/esnea</a><br>

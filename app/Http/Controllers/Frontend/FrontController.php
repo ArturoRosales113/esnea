@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Article;
+use App\CampoLaboral;
+use App\Slider;
+use App\PlanEstudio;
+
 
 class FrontController extends Controller
 {
     public function index()
     {
-     return view('frontend.index.index');
+     $articles = Article::all()->take(4);
+     return view('frontend.index.index',[
+      'articles' => $articles
+     ]);
     }
     public function nosotros()
     {
@@ -25,11 +33,17 @@ class FrontController extends Controller
     }
     public function campoLaboral()
     {
-     return view('frontend.campoLaboral.campoLaboral');
+     $campos = CampoLaboral::all();
+     return view('frontend.campoLaboral.campoLaboral',[
+      'campos' => $campos
+     ]);
     }
     public function diplomados()
     {
-     return view('frontend.diplomados.diplomados');
+     $diplomados = PlanEstudio::all()->where('isDiplomado',1);
+     return view('frontend.diplomados.diplomados',[
+      'diplomados' => $diplomados
+     ]);
     }
     public function becas()
     {
@@ -37,7 +51,11 @@ class FrontController extends Controller
     }
     public function noticias()
     {
-     return view('frontend.noticias.noticias');
+     $articles = Article::all();
+     //dd($articles);
+     return view('frontend.noticias.noticias',[
+      'articles' => $articles
+     ]);
     }
     public function galeria()
     {
