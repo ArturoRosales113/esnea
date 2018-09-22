@@ -38,7 +38,7 @@
 </style>
 @endsection
 @section('page_banner')
-@include('frontend.index.banner')
+@include('frontend.layouts.slices.banner')
 @endsection
 @section('content')
 <!-- Texto Bienvendia -->
